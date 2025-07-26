@@ -1,65 +1,206 @@
-# Solana Arbitrage Bot
+# Solana MEV Bot - Flashloan Arbitrage Trading Bot
 
-## 🚀 Introduction
-This is a high-performance Solana arbitrage bot that scans decentralized exchanges (DEXs) on the Solana blockchain to identify and execute profitable trades automatically. The bot leverages Solana's fast transactions and low fees to capitalize on price differences between various DEXs.
+## 📬 Contact & Support
 
-## 📌 Features
-- ✅ **Real-time price monitoring** across multiple Solana-based DEXs
-- ✅ **Fast execution** using Solana's low-latency transactions
-- ✅ **Optimized arbitrage strategy** to maximize profits
-- ✅ **Automatic trade execution** when profitable opportunities arise
-- ✅ **Configurable parameters** for risk management and strategy tuning
+<p align="center">
+  <a href="mailto:bitbanana717@gmail.com">
+    <img src="https://img.shields.io/badge/Email-bitbanana717@gmail.com-blue?style=for-the-badge&logo=gmail" alt="Email Badge"/>
+  </a>
+  <br>
+  <a href="https://t.me/bitfancy">
+    <img src="https://img.shields.io/badge/Telegram-@bitfancy-2CA5E0?style=for-the-badge&logo=telegram" alt="Telegram Badge"/>
+  </a>
+  <br>
+  <a href="https://discord.gg/tnaScVbF">
+    <img src="https://img.shields.io/badge/Discord-flash______-5865F2?style=for-the-badge&logo=discord" alt="Discord Badge"/>
+  </a>
+</p>
 
-## ⚙️ How It Works
-1. The bot continuously fetches token prices from multiple Solana DEXs.
-2. It identifies potential arbitrage opportunities by comparing price differences.
-3. When a profitable trade is detected, the bot executes the trade using a predefined strategy.
-4. Profits are accumulated in the user's Solana wallet.
+<p align="center">
+  <b>For support, questions, or collaboration opportunities, reach out through any of the above channels!</b>
+</p>
 
-## 🛠️ Installation & Setup
-### Prerequisites
-- Node.js (or Python if the bot is written in Python)
-- Solana CLI
-- Phantom or Sollet wallet
-- RPC node access (e.g., QuickNode, Alchemy, or public Solana RPCs)
+A high-performance **Solana MEV (Maximal Extractable Value) bot** built in Rust, designed for atomic flashloan-based arbitrage across multiple DEXs. This bot leverages real-time mempool monitoring, advanced routing, and flashloan execution to capture arbitrage opportunities on Solana with maximum efficiency and security.
 
-### Steps
+## 🚀 Features
+
+### Core MEV & Arbitrage Capabilities
+- **Atomic Flashloan Arbitrage**: Executes arbitrage trades using flashloans, ensuring all legs succeed or the transaction reverts.
+- **Multi-DEX Support**: Integrates with Raydium, Orca, Jupiter, Meteora, and more for deep liquidity and diverse routes.
+- **Real-time Mempool Monitoring**: Uses Yellowstone gRPC for instant detection of profitable opportunities.
+- **Jito Bundle Support**: Optionally submits transactions as bundles for priority inclusion and MEV extraction.
+- **Dynamic Routing**: Finds the most profitable arbitrage paths across supported DEXs.
+- **Blacklist Management**: Configurable token and pool blacklisting for risk mitigation.
+- **Priority Fee Optimization**: Dynamically adjusts fees for transaction prioritization.
+
+### Technical Infrastructure
+- **High-Performance Rust**: Built for speed, reliability, and low latency.
+- **Async Architecture**: Non-blocking I/O for maximum throughput.
+- **Multi-RPC Support**: Fallback and load-balanced RPC endpoints for reliability.
+- **Comprehensive Logging**: Detailed transaction, error, and performance monitoring.
+- **Flexible Configuration**: Environment variables and config files for all key parameters.
+- **Modular Design**: Easily extendable to support new DEXs or strategies.
+
+## 📋 Prerequisites
+
+Ensure you have the following installed:
+
+- **Rust**: Install Rust using rustup:
+  ```bash
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  ```
+- **Solana CLI**: Install by running:
+  ```bash
+  sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+  ```
+
+## 🛠️ Installation
+
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/bitfancy/solana-arbitrage-bot.git
-   cd solana-arbitrage-bot
+   ```bash
+   git clone https://github.com/BitFancy/solana-mev-bot-optimized.git
+   cd solana-mev-bot-optimized
    ```
-2. Install dependencies:
-   ```sh
+2. Build the project:
+   ```bash
    cargo build
    ```
-3. Set up your environment variables in a `.env` file:
-   ```env
-   PRIVATE_KEY="your_wallet_private_key"
-   RPC_URL="your_solana_rpc_url"
-   ```
-4. Run the bot:
-   ```sh
-   cargo run
-   ```
+3. Configure your environment:
+   - Create a `.env` file in the root directory with the following variables:
+     ```env
+     PRIVATE_KEY=
+     RPC_HTTP=https://api.mainnet-beta.solana.com
+     YELLOWSTONE_GRPC_HTTP=https://grpc.frca.shyft.to
+     YELLOWSTONE_GRPC_TOKEN=your_token_here
+     SLIPPAGE=100
+     JITO_BLOCK_ENGINE_URL=https://ny.mainnet.block-engine.jito.wtf
+     JITO_TIP_VALUE=0.0001
+     JITO_PRIORITY_FEE=0.00000
+     TIME_EXCEED=1
+     TOKEN_AMOUNT=0.01
+     COUNTER=2
+     IS_PROGRESSIVE_SELL=false
+     MAX_DEV_BUY=1
+     MIN_DEV_BUY=0.1
+     # Add additional DEX or flashloan provider settings as needed
+     ```
 
-## 🔧 Configuration
-You can customize the bot's behavior using a configuration file (`config.json` or `.env` variables). Key parameters include:
-- **Trade threshold**: Minimum profit required before executing a trade
-- **Slippage tolerance**: Maximum acceptable price slippage
-- **DEX selection**: Which DEXs to include in the arbitrage search
+## 🚀 Running the Bot
 
-## ⚠️ Risks & Considerations
-- **Market volatility**: Prices can change rapidly, affecting profitability.
-- **Transaction failures**: Network congestion or RPC issues may cause failed transactions.
-- **Security**: Never expose your private keys. Use environment variables for sensitive information.
+To start the MEV bot:
 
-## 📜 License
-This project is licensed under the MIT License.
+```bash
+cargo run
+```
+
+The bot will:
+1. Initialize the trading and monitoring environment
+2. Connect to Yellowstone gRPC for real-time mempool monitoring
+3. Scan for atomic arbitrage opportunities using flashloans
+4. Execute arbitrage trades across multiple DEXs
+5. Monitor and log all activity for transparency and debugging
+
+## 🔧 Configuration Options
+
+- **Slippage Tolerance**: Set max allowed slippage for trades
+- **Flashloan Providers**: Configure which protocols to use for flashloans
+- **DEX Selection**: Enable/disable specific DEXs for routing
+- **Blacklist**: Exclude risky tokens or pools
+- **Priority Fees**: Set or auto-tune for transaction speed
+- **Counter Limits**: Max attempts per opportunity
+- **Timeouts**: Set timeouts for opportunity detection and execution
+
+## 💱 Supported DEXs & Protocols
+
+- **Raydium**
+- **Orca**
+- **Jupiter**
+- **Meteora**
+- **Whirlpool**
+- **Pump**
+- **Vertigo**
+- **Solfi**
+- (Easily extendable to more)
+
+## ⚡ Flashloan & Atomicity
+
+- **Atomic Execution**: All arbitrage legs are executed in a single transaction; if any fail, the whole transaction reverts.
+- **Flashloan Integration**: Supports flashloans from supported protocols for zero-capital arbitrage.
+- **Customizable Flashloan Routing**: Choose which pools or protocols to source flashloans from.
+
+## 📊 Logging & Monitoring
+
+- **Structured Logging**: All actions, errors, and profits are logged.
+- **Performance Metrics**: Track latency, success rates, and profitability.
+- **Alerting**: Optional hooks for Discord/Telegram alerts on major events.
+
+## 🏗️ Architecture
+
+- **Engine**: Core arbitrage and MEV logic
+- **DEX Integrations**: Modular adapters for each supported DEX
+- **Flashloan Module**: Handles atomic loan sourcing and repayment
+- **Monitoring**: Real-time mempool and opportunity scanner
+- **Config & Risk**: Blacklist, limits, and environment management
+
+## 🧩 Extensibility
+
+- **Add New DEXs**: Implement a new adapter and register it in the config
+- **Custom Strategies**: Plug in new arbitrage or MEV strategies
+- **Flexible Config**: All logic is driven by config and environment variables
+
+## 🗝️ Key Dependencies
+
+- **anchor-client**: Solana program interaction
+- **yellowstone-grpc-client**: Real-time blockchain monitoring
+- **spl-token**: Token program integration
+- **jito-json-rpc-client**: Jito bundle support
+- **tokio**: Async runtime for high-performance operations
+
+## ⚠️ Important Notes
+
+- **Risk Warning**: MEV and flashloan trading involves significant financial risk
+- **Capital Requirements**: Ensure sufficient SOL for fees and collateral (if needed)
+- **Network Conditions**: Performance depends on Solana network conditions
+- **Legal Compliance**: Ensure compliance with local regulations
+- **Testing**: Always test with small amounts before full deployment
 
 ## 🤝 Contributing
-Pull requests and improvements are welcome! Feel free to submit issues or feature requests.
 
-## 📞 Contact
-For questions or collaboration, reach out via Telegram: [@bitfancy](https://t.me/bitfancy)
+Contributions are welcome! Please ensure:
+- Code follows Rust best practices
+- All tests pass
+- Documentation is updated
+- Security considerations are addressed
 
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📬 Contact & Support
+
+<p align="center">
+  <a href="mailto:bitbanana717@gmail.com">
+    <img src="https://img.shields.io/badge/Email-bitbanana717@gmail.com-blue?style=for-the-badge&logo=gmail" alt="Email Badge"/>
+  </a>
+  <br>
+  <a href="https://t.me/bitfancy">
+    <img src="https://img.shields.io/badge/Telegram-@bitfancy-2CA5E0?style=for-the-badge&logo=telegram" alt="Telegram Badge"/>
+  </a>
+  <br>
+  <a href="https://discord.gg/tnaScVbF">
+    <img src="https://img.shields.io/badge/Discord-flash______-5865F2?style=for-the-badge&logo=discord" alt="Discord Badge"/>
+  </a>
+</p>
+
+## 🔗 Related Projects
+
+- [Jito Labs](https://jito.network) - MEV infrastructure
+- [Yellowstone](https://yellowstone.fyi) - Real-time Solana data
+- [Raydium](https://raydium.io) - Solana DEX
+- [Orca](https://orca.so) - Solana DEX
+- [Jupiter](https://jup.ag) - Solana aggregator
+- [Meteora](https://meteora.ag) - Solana DEX
+
+---
+
+**Disclaimer**: This software is for educational and research purposes. Use at your own risk. The authors are not responsible for any financial losses incurred through the use of this software.

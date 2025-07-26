@@ -1,31 +1,25 @@
-# Compiled output
-target/
-debug/
-release/
-
-# Executables
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Backup files
-*~
-*.bak
-*.tmp
-
-# Rust format backup files
+target
+substreams-solana-idl-examples
+src_restore
+# Rust build artifacts
+/target
 **/*.rs.bk
+Cargo.lock
 
-# Cargo lock file (optional)
-# Uncomment the following line if you want to ignore Cargo.lock for libraries
-# Cargo.lock
-
-# IDE specific files
+# IDE files
 .idea/
 .vscode/
-*.sublime-workspace
+*.iml
 
-# Other files to ignore
-*.pdb  # Windows debugging information
+# Environment files
+.env
+.env.*
+
+# Transaction records
+/record/
+/record/pumpfun/
+/record/pumpswap/
+/record/raydium/
+
+# Logs
+*.log 
