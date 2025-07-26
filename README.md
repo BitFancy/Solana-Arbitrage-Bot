@@ -58,8 +58,8 @@ Ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/BitFancy/solana-mev-bot-optimized.git
-   cd solana-mev-bot-optimized
+   git clone https://github.com/BitFancy/Solana-Arbitrage-Bot.git
+   cd Solana-Arbitrage-Bot
    ```
 2. Build the project:
    ```bash
