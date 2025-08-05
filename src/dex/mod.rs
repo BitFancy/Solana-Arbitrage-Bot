@@ -1,6 +1,2 @@
-pub mod meteora;
-pub mod pump;
-pub mod raydium;
-pub mod solfi;
-pub mod vertigo;
-pub mod whirlpool;
+pub mod pump_fun;
+pub mod pump_swap;
