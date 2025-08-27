@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/badge/Telegram-@bitfancy-2CA5E0?style=for-the-badge&logo=telegram" alt="Telegram Badge"/>
   </a>
   <br>
-  <a href="https://discord.gg/tnaScVbF">
+  <a href="https://discord.gg/4srerxSs6S">
     <img src="https://img.shields.io/badge/Discord-flash______-5865F2?style=for-the-badge&logo=discord" alt="Discord Badge"/>
   </a>
 </p>
@@ -806,7 +806,7 @@ The Whirlpool swap structure is designed to support Orca's concentrated liquidit
     <img src="https://img.shields.io/badge/Telegram-@bitfancy-2CA5E0?style=for-the-badge&logo=telegram" alt="Telegram Badge"/>
   </a>
   <br>
-  <a href="https://discord.gg/tnaScVbF">
+  <a href="https://discord.gg/4srerxSs6S">
     <img src="https://img.shields.io/badge/Discord-flash______-5865F2?style=for-the-badge&logo=discord" alt="Discord Badge"/>
   </a>
 </p>
