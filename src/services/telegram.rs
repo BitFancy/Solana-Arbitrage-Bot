@@ -25,7 +25,7 @@ pub async fn init() -> Result<()> {
     
     // Get bot token from environment
     let bot_token = env::var("TELEGRAM_BOT_TOKEN").map_err(|_| {
-        logger.log("TELEGRAM_BOT_TOKEN not set in environment. Telegram notifications disabled.".yellow().to_string());
+        // logger.log("TELEGRAM_BOT_TOKEN not set in environment. Telegram notifications disabled.".yellow().to_string());
         anyhow!("TELEGRAM_BOT_TOKEN not set")
     })?;
     
