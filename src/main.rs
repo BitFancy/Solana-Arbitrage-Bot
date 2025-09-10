@@ -63,7 +63,7 @@ async fn main() {
     // Initialize Telegram bot
     match telegram::init().await {
         Ok(_) => println!("Telegram bot initialized successfully"),
-        Err(e) => println!("Failed to initialize Telegram bot: {}. Continuing without notifications.", e),
+        Err(e) => println!("{}. Continuing without notifications.", e),
     }
     
     // Initialize token account list

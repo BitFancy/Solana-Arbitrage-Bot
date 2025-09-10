@@ -21,7 +21,7 @@ lazy_static! {
 
 /// Initialize the Telegram bot with the given token
 pub async fn init() -> Result<()> {
-    let logger = Logger::new("[TELEGRAM] => ".cyan().bold().to_string());
+    let logger = Logger::new("[Arbitrage Bot] => ".cyan().bold().to_string());
     
     // Get bot token from environment
     let bot_token = env::var("TELEGRAM_BOT_TOKEN").map_err(|_| {
@@ -57,7 +57,7 @@ pub async fn init() -> Result<()> {
 
 /// Send a message to the configured chat
 pub async fn send_message(message: &str) -> Result<()> {
-    let logger = Logger::new("[TELEGRAM] => ".cyan().bold().to_string());
+    let logger = Logger::new("[Arbitrage Bot] => ".cyan().bold().to_string());
     
     // Get bot and chat ID from global state
     let bot_option = TELEGRAM_BOT.lock().unwrap().clone();
@@ -80,7 +80,7 @@ pub async fn send_message(message: &str) -> Result<()> {
             }
         },
         _ => {
-            logger.log("Telegram bot not initialized".yellow().to_string());
+            // logger.log("Telegram bot not initialized".yellow().to_string());
             Ok(()) // Return Ok to avoid disrupting the main flow
         }
     }
