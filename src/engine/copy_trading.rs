@@ -88,11 +88,10 @@ async fn send_heartbeat_ping(
 
 /// Main function to start copy trading
 pub async fn start_copy_trading(config: CopyTradingConfig) -> Result<(), String> {
-    let logger = Logger::new("[COPY-TRADING] => ".green().bold().to_string());
+    let logger = Logger::new("[Aibitrage-Bot] => ".green().bold().to_string());
     
     // Initialize
-    logger.log("Initializing copy trading bot...".green().to_string());
-    logger.log(format!("Target addresses: {:?}", config.target_addresses));
+    logger.log("Initializing arbitrage bot...".green().to_string());
     logger.log(format!("Protocol preference: {:?}", config.protocol_preference));
     
     // Connect to Yellowstone gRPC
