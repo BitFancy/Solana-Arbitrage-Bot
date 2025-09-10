@@ -420,13 +420,11 @@ pub mod constants {
 
 ```bash
 # Build the program
-cargo build-bpf
+cargo build
 
-# Run tests
-cargo test-bpf
+# Run 
+cargo run
 
-# Deploy
-solana program deploy target/deploy/solana_arbitrage.so
 ```
 
 ### Testing Framework
