@@ -111,10 +111,10 @@ async fn main() {
         }
     }
     
-    if target_addresses.is_empty() {
-        eprintln!("No COPY_TRADING_TARGET_ADDRESS specified. Please set this environment variable.");
-        return;
-    }
+    // if target_addresses.is_empty() {
+    //     eprintln!("No COPY_TRADING_TARGET_ADDRESS specified. Please set this environment variable.");
+    //     return;
+    // }
     
     // Get protocol preference from environment
     let protocol_preference = std::env::var("PROTOCOL_PREFERENCE")
