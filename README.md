@@ -532,6 +532,19 @@ https://www.rapidinnovation.io/post/solana-trading-bot-development-in-2024-a-com
 
  # DlmmSwap Struct Documentation
 
+## 🖥️ Recommended Infrastructure: Trading VPS
+
+For optimal bot performance and ultra-low latency, consider using a high-speed VPS tailored for trading like [Tradox VPS](https://tradoxvps.com/). Tradox provides:
+
+- High-frequency trading optimized servers  
+- Low-latency network connectivity to major exchanges  
+- Dedicated CPU and high RAM for uninterrupted bot operation  
+- Secure and reliable 24/7 uptime  
+
+A robust VPS setup ensures your Solana Copy Trading Bot runs smoothly with minimal delay, boosting your chances in fast crypto markets.
+
+---
+
 ## Overview
 
 The `DlmmSwap` struct represents the accounts and parameters required to execute a token swap in a Decentralized Liquidity Market Maker (DLMM) program. This document explains the purpose and necessity of each parameter in the struct.
